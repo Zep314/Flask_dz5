@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Просмотр базы данных текущих задач
+{% endblock %}
+
+{% block header %}
+<h1>
+Просмотр базы данных текущих задач
+</h1>
+{% endblock %}
+
+{% block content %}
+<div class="text-body text-justify">
+    <hr class="mb-4">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Context</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <th scope="row">{{ user.id }}</th>
+                <td>{{ user.subject }}</td>
+                <td>{{ user.context }}</td>
+<!--                <td><form method="POST" action="{{ url_for('update') }}"><input type="hidden" value="{{ user.id }}"><input type="submit" value="update"></form></td>-->
+<!--                <td><form method="POST" action="{{ url_for('delete') }}"><input type="hidden" value="{{ user.id }}"><input type="submit" value="delete"></form></td>-->
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <p>
+        <form action="/">
+            <input type="submit" value="Создать новую задачу">
+        </form>
+    </p>
+
+</div>
+
+{% endblock %}
