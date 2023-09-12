@@ -42,6 +42,14 @@ async def read_item(request: Request):
 
     return templates.TemplateResponse("show_db.html", {"request": request, "users": users})
 
+@app.get("/update", response_class=HTMLResponse)
+async def update_item():
+    return templates.TemplateResponse("item.html")
+@app.get("/delete", response_class=HTMLResponse)
+async def read_item(request: Request):
+    return templates.TemplateResponse("item.html")
+
+
 @app.get("/{name}", response_class=HTMLResponse)
 async def read_item(request: Request, name: str):
     return templates.TemplateResponse("item.html", {"request":request, "name": name})
