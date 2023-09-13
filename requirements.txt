@@ -19,3 +19,7 @@ typing_extensions==4.7.1
 uvicorn==0.23.2
 watchfiles==0.20.0
 websockets==11.0.3
+
+databases~=0.8.0
+SQLAlchemy~=1.4.49
+requests~=2.31.0

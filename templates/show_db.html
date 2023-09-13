@@ -25,21 +25,21 @@
             </tr>
         </thead>
         <tbody>
-        {% for user in users %}
+        {% for task in tasks %}
             <tr>
-                <th scope="row">{{ user.id }}</th>
-                <td>{{ user.subject }}</td>
-                <td>{{ user.context }}</td>
-                <td><form method="POST" action=""><input type="hidden" value="{{ user.id }}"><input type="submit" value="update"></form></td>
-                <td><form method="POST" action=""><input type="hidden" value="{{ user.id }}"><input type="submit" value="delete"></form></td>
+                <th scope="row">{{ task.id }}</th>
+                <td>{{ task.subject }}</td>
+                <td>{{ task.context }}</td>
+                <td><form method="POST" action=""><input name="task_id" type="hidden" value="{{ task.id }}"><input type="submit" class="btn btn-primary" value="Update"></form></td>
+                <td><form method="POST" action="/tasks/delete"><input name="id" type="hidden" value="{{ task.id }}"><input type="submit" class="btn btn-primary"   value="Delete"></form></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
     <hr>
     <p>
-        <form action="/">
-            <input type="submit" value="Создать новую задачу">
+        <form action="/item">
+            <input type="submit" class="btn btn-primary" value="Создать новую задачу">
         </form>
     </p>
 
