@@ -1,47 +1,39 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Просмотр базы данных текущих задач
+Просмотр базы данных пользователей
 {% endblock %}
 
 {% block header %}
 <h1>
-Просмотр базы данных текущих задач
+Просмотр базы данных пользователей
 </h1>
 {% endblock %}
 
 {% block content %}
 <div class="text-body text-justify">
-    <hr class="mb-4">
 
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Subject</th>
-                <th scope="col">Context</th>
-                <th scope="col">Update</th>
-                <th scope="col">Delete</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
             </tr>
         </thead>
         <tbody>
-        {% for task in tasks %}
+        {% for user in users %}
             <tr>
-                <th scope="row">{{ task.id }}</th>
-                <td>{{ task.subject }}</td>
-                <td>{{ task.context }}</td>
-                <td><form method="POST" action=""><input name="task_id" type="hidden" value="{{ task.id }}"><input type="submit" class="btn btn-primary" value="Update"></form></td>
-                <td><form method="POST" action="/tasks/delete"><input name="id" type="hidden" value="{{ task.id }}"><input type="submit" class="btn btn-primary"   value="Delete"></form></td>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.password }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
     <hr>
-    <p>
-        <form action="/item">
-            <input type="submit" class="btn btn-primary" value="Создать новую задачу">
-        </form>
-    </p>
 
 </div>
 
